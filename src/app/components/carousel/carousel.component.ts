@@ -24,7 +24,7 @@ export class CarouselComponent implements OnInit {
     this.ngZone.runOutsideAngular(() => {
       setInterval(() => {
         this.ngZone.run(() => this.next());
-      }, 3000);
+      }, 5500);
     });
   }
 

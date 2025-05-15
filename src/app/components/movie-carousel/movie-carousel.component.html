@@ -1,5 +1,5 @@
 <div *ngFor="let genre of getGenres()" class="genre-section">
-  <h2>{{ genre | titlecase }}</h2>
+  <h2 class="titlecase">{{ genre | titlecase }}</h2>
 
   <div class="carousel-wrapper">
     <button class="arrow left" (click)="scrollCarousel(genre, 'left')"><i class="fa-solid fa-caret-left"></i></button>

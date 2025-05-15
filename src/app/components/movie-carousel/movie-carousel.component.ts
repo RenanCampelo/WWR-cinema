@@ -46,7 +46,7 @@ export class MovieCarouselComponent {
       description: 'Um thriller tecnológico cheio de reviravoltas.'
     },
     {
-      title: 'Flow Gato',
+      title: 'Flow',
       genre: 'Em Cartaz',
       duration: '85 min',
       age: 'L',
@@ -54,7 +54,7 @@ export class MovieCarouselComponent {
       description: 'Animação divertida sobre amizade e aventura.'
     },
     {
-      title: 'KK Lendas',
+      title: 'Karate Kid Lendas',
       genre: 'Em Cartaz',
       duration: '120 min',
       age: '16',
@@ -136,7 +136,7 @@ export class MovieCarouselComponent {
       description: 'Velocidade, adrenalina e desafios nas pistas.'
     },
     {
-      title: 'JW Recomeço',
+      title: 'Jurassic World Recomeço',
       genre: 'Em breve',
       duration: '112 min',
       age: '14',
@@ -144,7 +144,7 @@ export class MovieCarouselComponent {
       description: 'História de redenção e novas oportunidades.'
     },
     {
-      title: 'Lili & Stitch',
+      title: 'Lilo & Stitch',
       genre: 'Em breve',
       duration: '90 min',
       age: 'L',

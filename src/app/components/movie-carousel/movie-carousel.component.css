@@ -21,12 +21,18 @@
   font-size: 13px;
 }
 
+.titlecase {
+color: white;
+font-size: 20px;
+}
+
 h2 {
-  color: var(--cor-1);
+  color: var(--cor-6);
   margin-left: 3.7%;
   font-family: "Krona One", sans-serif;
   font-weight: 100;
   font-style: normal;
+  font-size: 15px;
 }
 
 .movie-card img {
@@ -62,19 +68,23 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .popup {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+  background: #d4ebf8e8;
+  padding: 40px;
+  padding-top: 15px;
+  border-radius: 15px;
   width: 90%;
-  max-width: 400px;
+  max-width: 250px;
   text-align: center;
+  height: 70vh;
+  /* overflow: overlay; */
 }
 
 .popup-img {
-  width: 100%;
+  width: 85%;
   border-radius: 8px;
   margin: 10px 0;
 }

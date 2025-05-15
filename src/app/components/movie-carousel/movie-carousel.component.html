@@ -10,7 +10,9 @@
         (click)="openDetails(movie)">
         <img [src]="movie.image" [alt]="movie.title" />
         <div class="dados-filme">
-        <h3>{{ movie.title }} <h6>  <li> {{ movie.duration }}</li></h6></h3>
+          <h3>{{ movie.title }}</h3>
+          <h6><span>{{ movie.duration }}</span></h6>
+          
       
         <span class="age" [ngStyle]="{ 'background-color': getAgeColor(movie.age), 'color': 'white' }">
           {{ movie.age }}

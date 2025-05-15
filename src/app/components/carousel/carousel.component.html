@@ -1,0 +1,15 @@
+<div class="carousel-container">
+    <div class="carousel-images" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      <img *ngFor="let img of images" [src]="img" alt="Imagem aleatória" />
+    </div>
+  
+    <button class="control prev" (click)="prev()">‹</button>
+    <button class="control next" (click)="next()">›</button>
+  
+    <div class="dots">
+        <span *ngFor="let image of images; let i = index"
+              (click)="goToSlide(i)"
+              [class.active]="i === currentIndex"></span>
+      </div>
+      
+  </div>

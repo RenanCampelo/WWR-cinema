@@ -1,0 +1,113 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cor-2);
+    padding: 10px 20px;
+    color: var(--cor-1);
+    flex-wrap: wrap;
+}
+
+.navbar .logo {
+    text-shadow: 1.5px 1px 0 var(--cor-1);
+    /* sombra azul por baixo, deslocada 2px */
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--cor-3);
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    font-family: "Krona One", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 13px;
+    transition: 0.7s;
+    cursor: pointer;
+}
+
+.nav-links li  a:hover {
+    color: var(--cor-3) !important;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: var(--cor-1);
+    font-weight: 500;
+    position: relative;
+}
+
+.navbar .nav-links li a.active::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: var(--cor-3);
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.navbar .nav-links .cinemas {
+    color: var(--cor-3);
+}
+
+.navbar .search-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--cor-4);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.navbar .search-profile input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--cor-1);
+    width: 180px;
+}
+
+.navbar .search-profile input::placeholder {
+    color: #ccc;
+}
+
+.navbar .search-profile .user-icon {
+    font-size: 20px;
+    color: var(--cor-1);
+}
+
+.navbar .menu-icon {
+    display: none;
+    font-size: 24px;
+    color: var(--cor-1);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 10px;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+    }
+
+    .navbar .menu-icon {
+        display: block;
+    }
+
+    .navbar .search-profile {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

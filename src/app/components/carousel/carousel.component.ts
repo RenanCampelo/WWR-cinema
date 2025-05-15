@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common'; 
 
 @Component({
@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
 })
-export class CarouselComponent {
+export class CarouselComponent implements OnInit {
   images = [
     'img/Carrossel/aindaEstouAquiCRS.webp',
     'img/Carrossel/brancaDeNeveCRS.webp',
@@ -17,6 +17,16 @@ export class CarouselComponent {
   ];
 
   currentIndex = 0;
+
+  constructor(private ngZone: NgZone) {}
+
+  ngOnInit() {
+    this.ngZone.runOutsideAngular(() => {
+      setInterval(() => {
+        this.ngZone.run(() => this.next());
+      }, 3000);
+    });
+  }
 
   next() {
     this.currentIndex = (this.currentIndex + 1) % this.images.length;

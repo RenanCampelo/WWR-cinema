@@ -3,8 +3,8 @@
       <img *ngFor="let img of images" [src]="img" alt="Imagem aleatória" />
     </div>
   
-    <button class="control prev" (click)="prev()">‹</button>
-    <button class="control next" (click)="next()">›</button>
+    <button class="control prev" (click)="prev()"><i class="fa-solid fa-caret-left"></i></button>
+    <button class="control next" (click)="next()"><i class="fa-solid fa-caret-right"></i></button>
   
     <div class="dots">
         <span *ngFor="let image of images; let i = index"

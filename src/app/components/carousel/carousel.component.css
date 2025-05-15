@@ -4,7 +4,7 @@
     margin: auto;
     overflow: hidden;
     border-radius: 10px;
-    margin-top:1% ;
+    margin-top:8.5% ;
   }
   
   .carousel-images {
@@ -23,16 +23,21 @@
   
   .control {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 45%;
+    /* transform: translateY(-50%); */
     background: rgba(0,0,0,0.5);
     border: none;
-    color: white;
+    color: rgba(255, 255, 255, 0.486);
     font-size: 2rem;
-    padding: 0 12px;
+    padding: 8px 12px;
     cursor: pointer;
     z-index: 1;
     border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
   }
   
   .prev {
@@ -59,6 +64,6 @@
   }
   
   .dots .active {
-    background-color: #333;
+    background-color: var(--cor-6);
   }
   

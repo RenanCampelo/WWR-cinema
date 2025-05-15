@@ -1,0 +1,38 @@
+<div *ngFor="let genre of getGenres()" class="genre-section">
+  <h2>{{ genre | titlecase }}</h2>
+
+  <div class="carousel-wrapper">
+    <button class="arrow left" (click)="scrollCarousel(genre, 'left')"><i class="fa-solid fa-caret-left"></i></button>
+
+    <div class="carousel" [attr.data-genre]="genre">
+      <div class="movie-card"
+        *ngFor="let movie of getMoviesByGenre(genre) | slice: currentIndexByGenre[genre] : currentIndexByGenre[genre] + 5"
+        (click)="openDetails(movie)">
+        <img [src]="movie.image" [alt]="movie.title" />
+        <div class="dados-filme">
+        <h3>{{ movie.title }} <h6>  <li> {{ movie.duration }}</li></h6></h3>
+      
+        <span class="age" [ngStyle]="{ 'background-color': getAgeColor(movie.age), 'color': 'white' }">
+          {{ movie.age }}
+        </span>
+        
+      </div>
+      </div>
+    </div>
+
+    <button class="arrow right" (click)="scrollCarousel(genre, 'right')"><i class="fa-solid fa-caret-right"></i></button>
+  </div>
+</div>
+
+
+<!-- POPUP -->
+<div class="popup-backdrop" *ngIf="selectedMovie" (click)="closeDetails()">
+  <div class="popup" (click)="$event.stopPropagation()">
+    <h2>{{ selectedMovie.title }}</h2>
+    <img [src]="selectedMovie.image" class="popup-img" />
+    <p><strong>Duração:</strong> {{ selectedMovie.duration }}</p>
+    <p><strong>Classificação:</strong> {{ selectedMovie.age }}</p>
+    <p>{{ selectedMovie.description }}</p>
+    <button (click)="closeDetails()">Fechar</button>
+  </div>
+</div>

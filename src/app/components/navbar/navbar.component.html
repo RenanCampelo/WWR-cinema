@@ -1,14 +1,14 @@
 <nav class="navbar">
   <div class="logo">WWR</div>
   <ul class="nav-links" [class.active]="menuActive">
-    <li><a routerLink="/filmes" routerLinkActive="active">FILMES</a></li>
+    <li><a routerLink="/filmes" class="active" routerLinkActive="active">FILMES</a></li>
     <li><a routerLink="/precos">PREÇOS</a></li>
     <li><a routerLink="/promocoes">PROMOÇÕES</a></li>
     <li><a routerLink="/secoes">SUAS SEÇÕES</a></li>
     <li><a routerLink="/cinemas" class="cinemas"><i class="fas fa-map-marker-alt"></i> CINEMAS</a></li>
   </ul>
   <div class="search-profile">
-    <input type="text" placeholder="Encontre um filme, ator, gênero" />
+    <input type="text" placeholder=" 🔍︎ Encontre um filme, ator, gênero" />
     <i class="fas fa-user-circle user-icon"></i>
   </div>
   <div class="menu-icon" (click)="toggleMenu()">

@@ -79,7 +79,7 @@ h2 {
   width: 90%;
   max-width: 250px;
   text-align: center;
-  height: 70vh;
+  height: 90vh;
   /* overflow: overlay; */
 }
 
@@ -149,4 +149,9 @@ h2 {
 
 .dados-filme span {
   margin-top: 7%;
+}
+
+.popup button{
+  outline: none;
+  padding: 2% 5%;
 }

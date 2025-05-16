@@ -4,33 +4,48 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-# Inicializa o navegador
 driver = webdriver.Chrome()
-driver.get("http://localhost:4200")  # ou a URL onde sua aplicação Angular roda
+driver.get("http://localhost:4200")  # Altere para sua URL real, se necessário
 
 wait = WebDriverWait(driver, 10)
 
-# Espera até o primeiro movie-card estar visível
-first_movie_card = wait.until(
-    EC.element_to_be_clickable((By.CLASS_NAME, "movie-card"))
-)
+# Aguarda o carregamento dos cards
+wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, "movie-card")))
 
-# Clica no primeiro filme
-first_movie_card.click()
+# Coleta os 3 primeiros cards visíveis na tela
+movie_cards = driver.find_elements(By.CLASS_NAME, "movie-card")[:10]
 
-# Aguarda o popup aparecer
-popup = wait.until(
-    EC.visibility_of_element_located((By.CLASS_NAME, "popup-backdrop"))
-)
+for index, movie_card in enumerate(movie_cards, start=1):
+    try:
+        title = movie_card.find_element(By.TAG_NAME, "h3").text
 
-# Valida se o popup realmente apareceu
-if popup.is_displayed():
-    print("✅ Popup exibido com sucesso ao clicar no filme.")
-else:
-    print("❌ Popup NÃO exibido.")
+        # Scroll até o card
+        driver.execute_script("arguments[0].scrollIntoView(true);", movie_card)
+        time.sleep(0.5)
 
-# Espera alguns segundos para visualizar
-time.sleep(3)
+        # Clica no card
+        movie_card.click()
 
-# Fecha o navegador
+        # Aguarda o popup aparecer
+        popup = wait.until(EC.visibility_of_element_located((By.CLASS_NAME, "popup-backdrop")))
+
+        print(f"✅ [{index}] Filme aberto: {title}")
+
+        # Espera 3 segundos com o popup aberto
+        time.sleep(3)
+
+        # Fecha o popup (clica fora ou no botão fechar)
+        try:
+            close_button = popup.find_element(By.TAG_NAME, "button")
+            close_button.click()
+        except:
+            popup.click()
+
+        # Aguarda o fechamento do popup
+        wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, "popup-backdrop")))
+
+    except Exception as e:
+        print(f"⚠️ Erro ao abrir filme {index}: {e}")
+        continue
+
 driver.quit()
